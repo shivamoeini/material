@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Typography, Button } from "@material-ui/core";
 // import SaveIcon from '@material-ui/icons/Save';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
@@ -7,7 +8,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Checkbox from "@material-ui/core/CheckBox";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-
+import TextField from "@material-ui/core/TextField";
 
 
 function CheckboxExample(){
@@ -24,6 +25,7 @@ function CheckboxExample(){
 function App() {
   return (
     <div className="App">
+      
       <Typography variant="h3">Welcome to material ui shiva</Typography>
 <ButtonGroup>
       <Button variant="contained" color="primary" size="small" style={{fontSize:13}} startIcon={<LockIcon />} >
@@ -34,7 +36,8 @@ function App() {
       </Button>
       </ButtonGroup>
 <CheckboxExample/>
-  
+<TextField variant="outlined" color="secondary" label="Enter Email" type="email" placeholder="test@email.com"/>
+{/* type="time" */}
     </div>
   );
 }
