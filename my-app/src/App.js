@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography, Button } from "@material-ui/core";
+import {Button } from "@material-ui/core";
 // import SaveIcon from '@material-ui/icons/Save';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 // import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -11,11 +11,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from "@material-ui/core/TextField";
 import {makeStyles,ThemeProvider,createMuiTheme}from "@material-ui/core/styles"
 import { green, orange } from "@material-ui/core/colors";
-
-
-
-
-
+// import 'fontscoure-roboto';
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 
 const useStyles=makeStyles({
@@ -32,13 +32,19 @@ const useStyles=makeStyles({
 
 
 const theme=createMuiTheme({
+  typography:{
+    h2:{
+      fontSize:36,
+    }
+  },
   palette:{
     primary:{
       main:green[500],
     },
     secondary:{
       main:orange[400],
-    }
+    },
+ 
   }
 })
 
@@ -60,14 +66,15 @@ function CheckboxExample() {
 function App() {
   return (
   <ThemeProvider theme={theme}>
+    <Container maxWidth="sm">
     <div className="App">
-
-      <Typography variant="h3">Welcome to material ui shiva</Typography>
+<Typography variant="subtitlel">Welcome to MUI</Typography>
+      <Typography variant="h2">Welcome to material ui shiva</Typography>
       <ButtonGroup>
         <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
           Login
         </Button>
-        <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
+        <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
           Register
         </Button>
       </ButtonGroup>
@@ -76,6 +83,7 @@ function App() {
       {/* type="time" */}
       <ButtonStyled/>
     </div>
+    </Container>
     </ThemeProvider>
   );
 }
