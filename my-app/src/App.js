@@ -9,7 +9,8 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Checkbox from "@material-ui/core/CheckBox";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from "@material-ui/core/TextField";
-import {makeStyles}from "@material-ui/core/styles"
+import {makeStyles,ThemeProvider,createMuiTheme}from "@material-ui/core/styles"
+import { green, orange } from "@material-ui/core/colors";
 
 
 
@@ -27,6 +28,20 @@ const useStyles=makeStyles({
     margin:15,
   }
 })
+
+
+
+const theme=createMuiTheme({
+  palette:{
+    primary:{
+      main:green[500],
+    },
+    secondary:{
+      main:orange[400],
+    }
+  }
+})
+
 function ButtonStyled(){
   const classes=useStyles();
   return <Button className={classes.root}>Test Styles Button</Button>
@@ -44,6 +59,7 @@ function CheckboxExample() {
 }
 function App() {
   return (
+  <ThemeProvider theme={theme}>
     <div className="App">
 
       <Typography variant="h3">Welcome to material ui shiva</Typography>
@@ -51,7 +67,7 @@ function App() {
         <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
           Login
         </Button>
-        <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
+        <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
           Register
         </Button>
       </ButtonGroup>
@@ -60,6 +76,7 @@ function App() {
       {/* type="time" */}
       <ButtonStyled/>
     </div>
+    </ThemeProvider>
   );
 }
 
