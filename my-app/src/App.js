@@ -66,7 +66,7 @@ function CheckboxExample() {
 function App() {
   return (
   <ThemeProvider theme={theme}>
-    <Container maxWidth="sm">
+    <Container maxWidth="xs">
     <div className="App">
 <Typography variant="subtitlel">Welcome to MUI</Typography>
       <Typography variant="h2">Welcome to material ui shiva</Typography>
@@ -78,6 +78,22 @@ function App() {
           Register
         </Button>
       </ButtonGroup>
+      <Grid container spacing={4}>
+
+      <Grid item>
+      <Paper style={{height:75,width:50,}}/>
+    </Grid>
+    <Grid item>
+      <Paper style={{height:75,width:50,}}/>
+    </Grid>
+       <Grid item>
+      <Paper style={{height:75,width:50,}}/>
+    </Grid>
+    <Grid item>
+      <Paper style={{height:75,width:50,}}/>
+    </Grid>
+    
+      </Grid>
       <CheckboxExample />
       <TextField variant="outlined" color="secondary" label="Enter Email" type="email" placeholder="test@email.com" />
       {/* type="time" */}
