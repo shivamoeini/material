@@ -10,7 +10,7 @@ import Checkbox from "@material-ui/core/CheckBox";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
-import { green, orange } from "@material-ui/core/colors";
+// import { green, orange } from "@material-ui/core/colors";
 // import 'fontscoure-roboto';
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -20,7 +20,14 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
-import purple from '@material-ui/core/colors/purple';
+
+const useStyless = makeStyles({
+  root:{
+    display:'flex',
+    justifyContent:'space-between',
+   
+  }
+})
 
 
 const useStyles = makeStyles({
@@ -35,13 +42,14 @@ const useStyles = makeStyles({
 })
 
 
-const accent = purple['A200'];
+
 const theme = createMuiTheme({
   typography: {
     h2: {
       fontSize: 36,
     }
   },
+  
   // palette: {
   //   primary: {
   //     main: green[500],
@@ -68,29 +76,41 @@ function CheckboxExample() {
 
   )
 }
+function ButtonMenu(){
+  const clas=useStyless();
+  return(
+    <AppBar color="accent">
+    <Toolbar className={clas.root}>
+     
+<div>
+<Typography variant="h6">
+      <IconButton>
+        <MenuIcon />
+      </IconButton>
+        MUI Themeing
+      </Typography>
+</div>
+<div>
+<ButtonGroup >
+    <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
+      Login
+    </Button>
+    <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
+      Register
+    </Button>
+  </ButtonGroup>
+</div>
+       
+    </Toolbar>
+  </AppBar>
+  )
+}
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container >
         <div className="App">
-          <AppBar color="accent" >
-            <Toolbar justify="center">
-              <IconButton>
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6">
-                MUI Themeing
-              </Typography>
-              <ButtonGroup>
-            <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
-              Login
-            </Button>
-            <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
-              Register
-            </Button>
-          </ButtonGroup>
-            </Toolbar>
-          </AppBar>
+        <ButtonMenu/>
           <Typography variant="subtitlel">Welcome to MUI</Typography>
           <Typography variant="h2">Welcome to material ui shiva</Typography>
           
