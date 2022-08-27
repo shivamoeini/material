@@ -73,8 +73,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <Container >
         <div className="App">
-          <AppBar color="accent" >
-            <Toolbar justify="center">
+          <AppBar color="accent" justifyContent="space-between">
+            <Toolbar >
               <IconButton>
                 <MenuIcon />
               </IconButton>
