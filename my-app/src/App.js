@@ -21,22 +21,29 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyless = makeStyles({
-  root:{
+const useStyless = makeStyles((theme)=>({
+  shiva:{
     display:'flex',
     justifyContent:'space-between',
-   
-  }
-})
+      },
+      root:{
+        marginTop:theme.spacing(10),
+    }
+}))
+
+  
+
+// const useStyle = makeStyles((theme) => ({
+// }))
 
 
 const useStyles = makeStyles({
-  root: {
+  mgbuton: {
     background: 'linear-gradient(45deg,#FE6888,#FF8E53)',
     border: 0,
     borderRadius: 10,
     color: 'white',
-    padding: '10 35px',
+    padding: '60 35px',
     margin: 15,
   }
 })
@@ -63,7 +70,7 @@ const theme = createMuiTheme({
 
 function ButtonStyled() {
   const classes = useStyles();
-  return <Button className={classes.root}>Test Styles Button</Button>
+  return <Button className={classes.mgbuton}>Test Styles Button</Button>
 }
 function CheckboxExample() {
   const [checked, setChecked] = React.useState(true);
@@ -80,7 +87,7 @@ function ButtonMenu(){
   const clas=useStyless();
   return(
     <AppBar color="accent">
-    <Toolbar className={clas.root}>
+    <Toolbar className={clas.shiva}>
      
 <div>
 <Typography variant="h6">
@@ -106,27 +113,28 @@ function ButtonMenu(){
   )
 }
 function App() {
+  const shivaa=useStyless();
   return (
     <ThemeProvider theme={theme}>
       <Container >
-        <div className="App">
-        <ButtonMenu/>
+        <div className={shivaa.root}>
+        <ButtonMenu padding-right-spacing={5}/>
           <Typography variant="subtitlel">Welcome to MUI</Typography>
           <Typography variant="h2">Welcome to material ui shiva</Typography>
           
           <Grid container spacing={6} justify="center" >
 
-            <Grid item xs={3} sm={3} >
+            <Grid item xs={12} sm={3} >
               <Paper style={{ height: 350, width: "100%", }}>
                 {/* <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} >
                   Read More...
                 </Button> */}
               </Paper>
             </Grid>
-            <Grid item xs={3} sm={3}>
+            <Grid item xs={12} sm={3}>
               <Paper style={{ height: 350, width: "100%", }} />
             </Grid>
-            <Grid item xs={3} sm={3}>
+            <Grid item xs={12} sm={3}>
               <Paper style={{ height: 350, width: "100%", }} />
             </Grid>
             <Grid item>
