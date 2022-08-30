@@ -13,6 +13,9 @@ import Container from "@material-ui/core/Container";
 import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 import Card from '@material-ui/core/Card';
 import Grid from "@material-ui/core/Grid";
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 // import SaveIcon from '@material-ui/icons/Save';
 // import Checkbox from "@material-ui/core/CheckBox";
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -53,6 +56,13 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     paddingTop: '56.25%', // 16:9
   },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
 }))
 
 
@@ -84,7 +94,7 @@ function ButtonMenu() {
             <IconButton>
               <MenuIcon />
             </IconButton>
-            SHIVA
+            MUI
           </Typography>
         </div>
         <div>
@@ -134,13 +144,44 @@ function App() {
         <Grid container spacing={4}>
         {cards.map((card)=>(
           <Grid item key={card}  xs={12} sm={6} md={4}>
-            <Card className={shivaa.cardMedia}>
+        <Card>
+        <CardMedia className={shivaa.cardMedia}
+            image="https://source.unsplash.com/random"
+            title="Image title"
+            />
+            <CardContent className={shivaa.cardContent}>
+              <Typography gutterBottom variant="h5" component="h2">
+                Heading
+              </Typography>
+              <Typography>
+              This is a media card. You can use this section to describe the content.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                View
+              </Button>
+              <Button size="small" color="primary">
+              Edit
+              </Button>
+            </CardActions>
+        </Card>
 
-            </Card>
+            
           </Grid>
         ))}
         </Grid>
       </Container>
+
+      {/* footer */}
+      <footer className={shivaa.footer}>
+<Typography variant="h6" align="center"gutterBottom>
+  Footer
+</Typography>
+<Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+  Someting here to give the footer a purpose!
+</Typography>
+      </footer>
     </ThemeProvider>
   );
 }
