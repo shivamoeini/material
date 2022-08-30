@@ -1,150 +1,112 @@
 import React from "react";
 
 import { Button } from "@material-ui/core";
-// import SaveIcon from '@material-ui/icons/Save';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import LockIcon from '@material-ui/icons/Lock';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import Checkbox from "@material-ui/core/CheckBox";
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import TextField from "@material-ui/core/TextField";
-import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
-// import { green, orange } from "@material-ui/core/colors";
-// import 'fontscoure-roboto';
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-const useStyles = makeStyles((theme)=>({
-  shiva:{
-    display:'flex',
-    justifyContent:'space-between',
-      },
-  root:{
-        marginTop:theme.spacing(10),
-    },
-  mgbuton: {
-      background: 'linear-gradient(45deg,#FE6888,#FF8E53)',
-      border: 0,
-      borderRadius: 10,
-      color: 'white',
-      padding: '60 35px',
-      margin: 15,
-    }
-}))
+// import SaveIcon from '@material-ui/icons/Save';
+// import Checkbox from "@material-ui/core/CheckBox";
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import TextField from "@material-ui/core/TextField";
+// import { green, orange } from "@material-ui/core/colors";
+// import 'fontscoure-roboto';
+// import Paper from "@material-ui/core/Paper";
+// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+// import Grid from "@material-ui/core/Grid";
 
+const useStyles = makeStyles((theme) => ({
+  shiva: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  root: {
+    margin: theme.spacing(16,35 ,5),
   
-
-// const useStyle = makeStyles((theme) => ({
-// }))
-
+  },
+  mgbuton: {
+    background: 'linear-gradient(45deg,#FE6888,#FF8E53)',
+    border: 0,
+    borderRadius: 10,
+    color: 'white',
+    padding: '60 35px',
+    margin: 15,
+  },
+  heroContent:{
+    backgroundColor:theme.palette.background.paper,
+    padding:theme.spacing(7,0,6),
+   
+  }
+}))
 
 
 
 
 const theme = createMuiTheme({
   typography: {
-    h2: {
-      fontSize: 36,
+    // h2: {
+    //   fontSize: 70,
+    // },
+    h4:{
+      fontSize:30,
     }
   },
-  
-  // palette: {
-  //   primary: {
-  //     main: green[500],
-  //   },
-  //   secondary: {
-  //     main: orange[400],
-  //   },
 
-  // }
+
 })
 
-function ButtonStyled() {
-  const classes = useStyles();
-  return <Button className={classes.mgbuton}>Test Styles Button</Button>
-}
-function CheckboxExample() {
-  const [checked, setChecked] = React.useState(true);
+
+
+function ButtonMenu() {
+  const clas = useStyles();
   return (
-
-    <FormControlLabel
-      control={<Checkbox checked={checked} onChange={(e) => setChecked(e.target.checked)} />}
-      label="Secondary"
-    />
-
-  )
-}
-function ButtonMenu(){
-  const clas=useStyles();
-  return(
     <AppBar color="accent">
-    <Toolbar className={clas.shiva}>
-     
-<div>
-<Typography variant="h6">
-      <IconButton>
-        <MenuIcon />
-      </IconButton>
-        MUI Themeing
-      </Typography>
-</div>
-<div>
-<ButtonGroup >
-    <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
-      Login
-    </Button>
-    <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
-      Register
-    </Button>
-  </ButtonGroup>
-</div>
-       
-    </Toolbar>
-  </AppBar>
+      <Toolbar className={clas.shiva}>
+
+        <div>
+          <Typography variant="h6">
+            <IconButton>
+              <MenuIcon />
+            </IconButton>
+            SHIVA
+          </Typography>
+        </div>
+        <div>
+          <ButtonGroup >
+            <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
+              Login
+            </Button>
+            <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
+              Register
+            </Button>
+          </ButtonGroup>
+        </div>
+
+      </Toolbar>
+    </AppBar>
   )
 }
 function App() {
-  const shivaa=useStyles();
+  const shivaa = useStyles();
   return (
+  
     <ThemeProvider theme={theme}>
       <Container >
         <div className={shivaa.root}>
-        <ButtonMenu padding-right-spacing={5}/>
-          <Typography variant="subtitlel">Welcome to MUI</Typography>
-          <Typography variant="h2">Welcome to material ui shiva</Typography>
-          
-          <Grid container spacing={6} justify="center" >
-
-            <Grid item xs={12} sm={3} >
-              <Paper style={{ height: 350, width: "100%", }}>
-                {/* <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} >
-                  Read More...
-                </Button> */}
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              <Paper style={{ height: 350, width: "100%", }} />
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              <Paper style={{ height: 350, width: "100%", }} />
-            </Grid>
-            <Grid item>
-
-            </Grid>
-
-          </Grid>
-          <CheckboxExample />
-          <TextField variant="outlined" color="secondary" label="Enter Email" type="email" placeholder="test@email.com" />
-          {/* type="time" */}
-          <ButtonStyled />
-        </div>
+          <ButtonMenu padding-right-spacing={3} />
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            Album layout
+          </Typography>
+          <Typography variant="h4" align="center" color="textSecondary">Something Short and leading about the collection below-its contents, the creator,etc.Make it short and sweet, but too short so folks don&apos;t simply skip over it entirely.</Typography>
+          </div>
       </Container>
     </ThemeProvider>
   );
