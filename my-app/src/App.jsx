@@ -21,13 +21,21 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyless = makeStyles((theme)=>({
+const useStyles = makeStyles((theme)=>({
   shiva:{
     display:'flex',
     justifyContent:'space-between',
       },
-      root:{
+  root:{
         marginTop:theme.spacing(10),
+    },
+  mgbuton: {
+      background: 'linear-gradient(45deg,#FE6888,#FF8E53)',
+      border: 0,
+      borderRadius: 10,
+      color: 'white',
+      padding: '60 35px',
+      margin: 15,
     }
 }))
 
@@ -37,16 +45,6 @@ const useStyless = makeStyles((theme)=>({
 // }))
 
 
-const useStyles = makeStyles({
-  mgbuton: {
-    background: 'linear-gradient(45deg,#FE6888,#FF8E53)',
-    border: 0,
-    borderRadius: 10,
-    color: 'white',
-    padding: '60 35px',
-    margin: 15,
-  }
-})
 
 
 
@@ -84,7 +82,7 @@ function CheckboxExample() {
   )
 }
 function ButtonMenu(){
-  const clas=useStyless();
+  const clas=useStyles();
   return(
     <AppBar color="accent">
     <Toolbar className={clas.shiva}>
@@ -113,7 +111,7 @@ function ButtonMenu(){
   )
 }
 function App() {
-  const shivaa=useStyless();
+  const shivaa=useStyles();
   return (
     <ThemeProvider theme={theme}>
       <Container >
