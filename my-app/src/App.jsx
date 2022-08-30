@@ -11,8 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
-import CssBaseline from '@material-ui/core/CssBaseline';
-
+import Card from '@material-ui/core/Card';
+import Grid from "@material-ui/core/Grid";
 // import SaveIcon from '@material-ui/icons/Save';
 // import Checkbox from "@material-ui/core/CheckBox";
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -21,7 +21,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import 'fontscoure-roboto';
 // import Paper from "@material-ui/core/Paper";
 // import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-// import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   shiva: {
@@ -29,22 +28,31 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   root: {
-    margin: theme.spacing(16,35 ,5),
-  
+    margin: theme.spacing(16, 32, 5),
+    textAlign: 'center',
+
   },
   mgbuton: {
-    background: 'linear-gradient(45deg,#FE6888,#FF8E53)',
-    border: 0,
-    borderRadius: 10,
-    color: 'white',
     padding: '60 35px',
-    margin: 15,
+    margin: theme.spacing(4,1,3),
+    fontSize: 17,
   },
-  heroContent:{
-    backgroundColor:theme.palette.background.paper,
-    padding:theme.spacing(7,0,6),
-   
-  }
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(7, 0, 6),
+
+  },cardGrid:{
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
 }))
 
 
@@ -55,8 +63,8 @@ const theme = createMuiTheme({
     // h2: {
     //   fontSize: 70,
     // },
-    h4:{
-      fontSize:30,
+    h4: {
+      fontSize: 30,
     }
   },
 
@@ -94,19 +102,44 @@ function ButtonMenu() {
     </AppBar>
   )
 }
+
+
+
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 function App() {
   const shivaa = useStyles();
   return (
-  
+
     <ThemeProvider theme={theme}>
       <Container >
         <div className={shivaa.root}>
-          <ButtonMenu padding-right-spacing={3} />
+          <ButtonMenu />
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
             Album layout
           </Typography>
           <Typography variant="h4" align="center" color="textSecondary">Something Short and leading about the collection below-its contents, the creator,etc.Make it short and sweet, but too short so folks don&apos;t simply skip over it entirely.</Typography>
+          <div>
+            <Button className={shivaa.mgbuton} variant="contained" color="primary">
+            Main call to action
+            </Button>
+            <Button className={shivaa.mgbuton} variant="outlined" color="primary">
+            Secondary action
+            </Button>
           </div>
+        </div>
+      </Container>
+      <Container className={shivaa.cardGrid} maxWidth="md">
+        <Grid container spacing={4}>
+        {cards.map((card)=>(
+          <Grid item key={card}  xs={12} sm={6} md={4}>
+            <Card className={shivaa.cardMedia}>
+
+            </Card>
+          </Grid>
+        ))}
+        </Grid>
       </Container>
     </ThemeProvider>
   );
