@@ -1,5 +1,7 @@
 import React from "react";
-
+import {
+  Link
+} from "react-router-dom";
 import { Button } from "@material-ui/core";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import LockIcon from '@material-ui/icons/Lock';
@@ -38,9 +40,11 @@ function Header() {
           </div>
           <div>
             <ButtonGroup >
+              <Link to="/singin">
               <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
                 Login
               </Button>
+              </Link>
               <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
                 Register
               </Button>
