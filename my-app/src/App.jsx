@@ -1,13 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+
+} from "react-router-dom";
 import Home from './components/Home';
+import SingIn from './components/SingIn'
 function App() {
   return (
-  <Router>
-    <Route path='/'>
-      <Home />
-    </Route>
-  </Router>
+    <BrowserRouter>
+
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/singin' element={<SingIn />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
