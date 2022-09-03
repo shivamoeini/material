@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       justifyContent: 'space-between',
     },
-   
+  button1:{
+    borderRadius: (6 ,0, 0, 5),
+  }
   }))
 
 
@@ -41,13 +43,16 @@ function Header() {
           <div>
             <ButtonGroup >
               <Link to="/singin">
-              <Button variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
+              <Button className={classheader.button1} variant="contained" color="primary" size="small" style={{ fontSize: 13 }} startIcon={<LockIcon />} >
                 Login
               </Button>
               </Link>
-              <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
-                Register
+          <Link to="/singup">
+          <Button variant="contained" color="secondary" size="small" style={{ fontSize: 13 }} endIcon={<PersonAddIcon />}>
+          Signup
+
               </Button>
+          </Link>
             </ButtonGroup>
           </div>
   
